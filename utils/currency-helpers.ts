@@ -11,6 +11,14 @@ export enum Currency {
 
 export const CURRENCIES = Object.values(Currency)
 
+export enum CurrencyState {
+  DEFAULT = `default`,
+  COST_PENDING = `cost pending`,
+  COST_ERROR = `cost error`,
+  INCOME_PENDING = `income pending`,
+  INCOME_ERROR = `income error`,
+}
+
 export type CurrencyArgument = {
   id: string,
   date: string,

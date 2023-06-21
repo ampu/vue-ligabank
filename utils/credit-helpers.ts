@@ -30,22 +30,22 @@ export enum CreditGoalKey {
   CAR = `car`,
 }
 
-const DefaultFieldConstraint = {
-  PROPERTY_AMOUNT: {min: 0, max: 0, step: 0},
-  INITIAL_PAYMENT_PERCENTAGE: {min: 0, max: 0, step: 5},
-  CREDIT_PERIOD: {min: 0, max: 0, step: 0},
+const DEFAULT_FIELD_CONSTRAINT = {
+  propertyAmount: {min: 0, max: 0, step: 0},
+  initialPaymentPercentage: {min: 0, max: 0, step: 5},
+  creditPeriod: {min: 0, max: 0, step: 0},
 }
 
-const MortgageFieldConstraint = {
-  PROPERTY_AMOUNT: {min: 1200000, max: 25000000, step: 100000},
-  INITIAL_PAYMENT_PERCENTAGE: {min: 10, max: 100, step: 5},
-  CREDIT_PERIOD: {min: 5, max: 30, step: 1},
+const MORTGAGE_FIELD_CONSTRAINT = {
+  propertyAmount: {min: 1200000, max: 25000000, step: 100000},
+  initialPaymentPercentage: {min: 10, max: 100, step: 5},
+  creditPeriod: {min: 5, max: 30, step: 1},
 }
 
-const CarFieldConstraint = {
-  PROPERTY_AMOUNT: {min: 500000, max: 5000000, step: 50000},
-  INITIAL_PAYMENT_PERCENTAGE: {min: 20, max: 100, step: 5},
-  CREDIT_PERIOD: {min: 1, max: 5, step: 1},
+const CAR_FIELD_CONSTRAINT = {
+  propertyAmount: {min: 500000, max: 5000000, step: 50000},
+  initialPaymentPercentage: {min: 20, max: 100, step: 5},
+  creditPeriod: {min: 1, max: 5, step: 1},
 }
 
 /** @enum */
@@ -58,7 +58,7 @@ export const CreditGoal = {
     requestTitle: undefined,
     denialTitle: undefined,
     denialAmount: undefined,
-    FieldConstraint: DefaultFieldConstraint,
+    fieldConstraint: DEFAULT_FIELD_CONSTRAINT,
     parametersComponent: undefined,
   },
   MORTGAGE: {
@@ -69,13 +69,13 @@ export const CreditGoal = {
     requestTitle: `Ипотека`,
     denialTitle: `ипотечные кредиты`,
     denialAmount: 500000,
-    FieldConstraint: MortgageFieldConstraint,
+    fieldConstraint: MORTGAGE_FIELD_CONSTRAINT,
     defaultFormData: {
       id: ``,
       creditGoalValue: CreditGoalKey.MORTGAGE,
-      propertyAmount: MortgageFieldConstraint.PROPERTY_AMOUNT.min,
-      initialPaymentPercentage: MortgageFieldConstraint.INITIAL_PAYMENT_PERCENTAGE.min,
-      creditPeriod: MortgageFieldConstraint.CREDIT_PERIOD.min,
+      propertyAmount: MORTGAGE_FIELD_CONSTRAINT.propertyAmount.min,
+      initialPaymentPercentage: MORTGAGE_FIELD_CONSTRAINT.initialPaymentPercentage.min,
+      creditPeriod: MORTGAGE_FIELD_CONSTRAINT.creditPeriod.min,
       isMaternityCapital: false,
       isCasco: false,
       isLifeInsurance: false,
@@ -93,13 +93,13 @@ export const CreditGoal = {
     requestTitle: `Автокредит`,
     denialTitle: `автокредиты`,
     denialAmount: 200000,
-    FieldConstraint: CarFieldConstraint,
+    fieldConstraint: CAR_FIELD_CONSTRAINT,
     defaultFormData: {
       id: ``,
       creditGoalValue: CreditGoalKey.CAR,
-      propertyAmount: CarFieldConstraint.PROPERTY_AMOUNT.min,
-      initialPaymentPercentage: CarFieldConstraint.INITIAL_PAYMENT_PERCENTAGE.min,
-      creditPeriod: CarFieldConstraint.CREDIT_PERIOD.min,
+      propertyAmount: CAR_FIELD_CONSTRAINT.propertyAmount.min,
+      initialPaymentPercentage: CAR_FIELD_CONSTRAINT.initialPaymentPercentage.min,
+      creditPeriod: CAR_FIELD_CONSTRAINT.creditPeriod.min,
       isMaternityCapital: false,
       isCasco: false,
       isLifeInsurance: false,
@@ -230,12 +230,12 @@ export const calculateMonthlyIncome = (formData: FormData) => {
 }
 
 export const isValidFormData = (
-  {FieldConstraint}: CreditGoalModel,
+  {fieldConstraint}: CreditGoalModel,
   {propertyAmount, initialPaymentPercentage, creditPeriod}: FormData,
 ) => {
-  return isValidByConstraint(propertyAmount, FieldConstraint.PROPERTY_AMOUNT)
-    && isValidByConstraint(initialPaymentPercentage, FieldConstraint.INITIAL_PAYMENT_PERCENTAGE)
-    && isValidByConstraint(creditPeriod, FieldConstraint.CREDIT_PERIOD)
+  return isValidByConstraint(propertyAmount, fieldConstraint.propertyAmount)
+    && isValidByConstraint(initialPaymentPercentage, fieldConstraint.initialPaymentPercentage)
+    && isValidByConstraint(creditPeriod, fieldConstraint.creditPeriod)
 }
 
 export const findCreditGoalByKey = (key: CreditGoalKey): CreditGoalModel => {

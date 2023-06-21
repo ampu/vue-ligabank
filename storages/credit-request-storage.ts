@@ -1,17 +1,14 @@
-const CREDIT_REQUEST_DATA = {
-  storeKey: `akimutin-ligabank__credit-request`,
-  defaultMap: {id: 1},
-}
+const CREDIT_REQUEST_STORAGE_KEY = `ligabank-credit-request`
+const CREDIT_REQUEST_DEFAULT_MAP = {id: generateRequestId()}
 
-class CreditRequestStore {
-
+class CreditRequestStorage {
   constructor(
     private _storage: Storage,
     private _mapKey: string,
   ) {
   }
 
-  getMap(defaultMap = CREDIT_REQUEST_DATA.defaultMap): {id: number} {
+  getMap(defaultMap = CREDIT_REQUEST_DEFAULT_MAP): {id: string} {
     try {
       const value = this._storage.getItem(this._mapKey) ?? ``
       return JSON.parse(value) || defaultMap
@@ -31,4 +28,4 @@ class CreditRequestStore {
   }
 }
 
-export const creditRequestStore = new CreditRequestStore(localStorage, CREDIT_REQUEST_DATA.storeKey)
+export const creditRequestStorage = new CreditRequestStorage(localStorage, CREDIT_REQUEST_STORAGE_KEY)

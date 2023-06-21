@@ -96,8 +96,7 @@ const DatePicker = applyReactInVue(ReactDatePicker as ReactComponent)
 
 import {useCurrencyStore} from '~/stores/currency-store'
 import {useCurrencyHistoryStore} from '~/stores/currency-history-store'
-import {Currency, HISTORY_DATE_DAYS, MONEY_FRACTION_DIGITS} from '~/utils/currency-helpers'
-import {CurrencyState} from '~/utils/currency-state'
+import {Currency, CurrencyState, HISTORY_DATE_DAYS, MONEY_FRACTION_DIGITS} from '~/utils/currency-helpers'
 
 const currencyStore = useCurrencyStore()
 const currencyHistoryStore = useCurrencyHistoryStore()

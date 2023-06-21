@@ -8,7 +8,7 @@
       name="property-amount"
       :title="creditGoal.propertyAmountTitle"
       :onGetSuffix="formatRublesSuffix"
-      :valueConstraint="creditGoal.FieldConstraint.PROPERTY_AMOUNT"
+      :valueConstraint="creditGoal.fieldConstraint.propertyAmount"
       v-model="propertyAmount"
     />
 
@@ -20,7 +20,7 @@
       :onGetValueSuffix="formatRublesSuffix"
       legendSuffix="%"
       withCurrentValueLegend
-      :valueConstraint="creditGoal.FieldConstraint.INITIAL_PAYMENT_PERCENTAGE"
+      :valueConstraint="creditGoal.fieldConstraint.initialPaymentPercentage"
       :onValueFormat="formatInitialPayment"
       :onValueParse="parseInitialPayment"
       v-model="initialPaymentPercentage"
@@ -33,7 +33,7 @@
       title="Срок кредитования"
       :onGetValueSuffix="formatYearsSuffix"
       :onGetLegendSuffix="formatYearsSuffix"
-      :valueConstraint="creditGoal.FieldConstraint.CREDIT_PERIOD"
+      :valueConstraint="creditGoal.fieldConstraint.creditPeriod"
       v-model="creditPeriod"
     />
 
@@ -69,7 +69,7 @@ const formatInitialPayment = (initialPaymentPercentage) => {
 
 const parseInitialPayment = (initialPayment) => {
   return calculateInitialPaymentPercentage(
-    props.creditGoal.FieldConstraint.INITIAL_PAYMENT_PERCENTAGE,
+    props.creditGoal.fieldConstraint.initialPaymentPercentage,
     props.formData,
     initialPayment,
   )

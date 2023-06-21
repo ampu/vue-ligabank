@@ -2,15 +2,15 @@
   <ul class="SocialNavigation">
     <li
       v-for="item of SOCIAL_NAVIGATION_ITEMS"
-      :key="item.externalLink"
+      :key="item.href"
       class="SocialNavigation__item"
     >
       <a
         class="SocialNavigation__link"
-        :href="item.externalLink"
+        :href="item.href"
         :aria-label="item.ariaLabel"
       >
-        <component :is="item.iconComponent"/>
+        <component :is="item.icon"/>
       </a>
     </li>
   </ul>
@@ -23,10 +23,10 @@ import TwitterIcon from '@/assets/icons/twitter-icon.svg?component'
 import YoutubeIcon from '@/assets/icons/youtube-icon.svg?component'
 
 const SOCIAL_NAVIGATION_ITEMS = [
-  {ariaLabel: `Группа в Facebook.`, iconComponent: FacebookIcon, externalLink: ExternalLink.FACEBOOK},
-  {ariaLabel: `Аккаунт в Instagram.`, iconComponent: InstagramIcon, externalLink: ExternalLink.INSTAGRAM},
-  {ariaLabel: `Лента в Twitter.`, iconComponent: TwitterIcon, externalLink: ExternalLink.TWITTER},
-  {ariaLabel: `Канал на YouTube.`, iconComponent: YoutubeIcon, externalLink: ExternalLink.YOUTUBE},
+  {ariaLabel: `Группа в Facebook.`, href: `https://facebook.com/`, icon: FacebookIcon},
+  {ariaLabel: `Аккаунт в Instagram.`, href: `https://instagram.com/`, icon: InstagramIcon},
+  {ariaLabel: `Лента в Twitter.`, href: `https://twitter.com/`, icon: TwitterIcon},
+  {ariaLabel: `Канал на YouTube.`, href: `https://youtube.com/`, icon: YoutubeIcon},
 ]
 </script>
 

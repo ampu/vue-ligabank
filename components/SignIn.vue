@@ -72,7 +72,7 @@ import {FocusTrap} from 'focus-trap-vue'
 import PopupCloseButtonIcon from '@/assets/icons/popup-close-icon.svg?component'
 import SignInPasswordToggleButtonIcon from '@/assets/icons/sign-in-password-toggle-icon.svg?component'
 
-import {signInStore} from '~/utils/sign-in-store'
+import {signInStorage} from '~/storages/sign-in-storage'
 
 const emit = defineEmits<{
   (type: `close`): void,
@@ -87,7 +87,7 @@ const [isError, setError, unsetError] = useActive(false)
 const [isPasswordVisibleByMouse, setPasswordVisibleByMouse, unsetPasswordVisibleByMouse] = useActive(false)
 const [isPasswordVisibleByKeyboard, setPasswordVisibleByKeyboard, unsetPasswordVisibleByKeyboard] = useActive(false)
 
-const signInData = ref(signInStore.getMap())
+const signInData = ref(signInStorage.getMap())
 
 const containerRef = ref()
 const [formRef, onContainerMouseDown] = usePopup(onClose)
@@ -115,7 +115,7 @@ const onSubmitButtonClick = (evt) => {
       password: formData.get(`password`),
     }
 
-    signInStore.patchMap(newSignInData)
+    signInStorage.patchMap(newSignInData)
     onClose()
   })
 }

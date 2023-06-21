@@ -1,5 +1,7 @@
 import {useActive} from '~/composables/use-active'
 
+const calculateActive = () => window.innerWidth < Viewport.TABLET
+
 export const useMobileModal = () => {
   const [
     isActive,
@@ -9,12 +11,11 @@ export const useMobileModal = () => {
   ] = useActive(false)
 
   const onWindowResize = () => {
-    if (window.innerWidth >= Viewport.TABLET) {
-      deactivate()
-    }
+    isActive.value = calculateActive()
   }
 
   onMounted(() => {
+    isActive.value = calculateActive()
     window.addEventListener(`resize`, onWindowResize)
   })
 

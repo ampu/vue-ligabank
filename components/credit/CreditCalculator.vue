@@ -50,7 +50,7 @@
 
 <script setup lang="ts">
 import {calculateCreditAmount, CreditGoal, CreditGoalKey, findCreditGoalByKey, generateRequestId, isValidFormData} from '~/utils/credit-helpers'
-import {creditRequestStore} from '~/utils/credit-request-store'
+import {creditRequestStorage} from '~/storages/credit-request-storage'
 import {scrollIntoViewByNavigationId} from '~/utils/dom-helpers'
 
 const containerRef = ref()
@@ -58,7 +58,7 @@ const newCreditRequestDataRef = ref()
 
 const creditGoalKey = ref(CreditGoalKey.DEFAULT)
 const creditGoal = computed(() => findCreditGoalByKey(creditGoalKey.value))
-const creditRequestData = ref(creditRequestStore.getMap())
+const creditRequestData = ref(creditRequestStorage.getMap())
 const formData = ref<FormData>()
 const isCreditRequestActive = ref(false)
 const isThankYouActive = ref(false)
@@ -88,7 +88,7 @@ const onCreditRequestSubmit = () => {
     email,
     phone,
   }
-  creditRequestStore.patchMap(newCreditRequestDataRef.value)
+  creditRequestStorage.patchMap(newCreditRequestDataRef.value)
 
   isThankYouActive.value = true
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="page-layout">
     <AppHeader/>
-    <main class="not-found-page">
+    <main class="ErrorPage">
       <h1>Страница не найдена</h1>
       <NuxtLink class="page-link" :to="LocalPath.INDEX">
         Вернуться на главную страницу
@@ -12,7 +12,7 @@
 </template>
 
 <style lang="scss">
-.not-found-page {
+.ErrorPage {
   @include container;
 
   flex-grow: 1;
@@ -23,7 +23,7 @@
   align-items: center;
 }
 
-.not-found-page h1 {
+.ErrorPage h1 {
   margin: 0;
   margin-bottom: 20px;
 
@@ -35,7 +35,7 @@
   }
 }
 
-.not-found-page a {
+.ErrorPage a {
   @include button;
 
   display: flex;

@@ -18,7 +18,7 @@
           @focus="onControlButtonFocus"
           @keydown="onControlButtonKeyDown"
         >
-          <component :is="service.iconComponent"/>
+          <component :is="service.icon"/>
           <span>{{ service.title }}</span>
         </button>
       </li>
@@ -52,10 +52,10 @@ import InsuranceIcon from '~/assets/icons/services-insurance-icon.svg?component'
 import OnlineIcon from '~/assets/icons/services-online-icon.svg?component'
 
 const SERVICES = [
-  {key: `deposits`, title: `Вклады`, iconComponent: DepositsIcon, component: ServicesDeposits},
-  {key: `credits`, title: `Кредиты`, iconComponent: CreditsIcon, component: ServicesCredits},
-  {key: `insurance`, title: `Страхование`, iconComponent: InsuranceIcon, component: ServicesInsurance},
-  {key: `online`, title: `Онлайн-сервисы`, iconComponent: OnlineIcon, component: ServicesOnline},
+  {key: `deposits`, title: `Вклады`, icon: DepositsIcon, component: ServicesDeposits},
+  {key: `credits`, title: `Кредиты`, icon: CreditsIcon, component: ServicesCredits},
+  {key: `insurance`, title: `Страхование`, icon: InsuranceIcon, component: ServicesInsurance},
+  {key: `online`, title: `Онлайн-сервисы`, icon: OnlineIcon, component: ServicesOnline},
 ]
 
 const [

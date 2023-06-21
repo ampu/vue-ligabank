@@ -1,5 +1,6 @@
 {
   "name": "vue-ligabank",
+  "repository": "https://github.com/ampu/vue-ligabank/",
   "type": "module",
   "scripts": {
     "start": "npm run dev",
@@ -25,7 +26,6 @@
     "vite-svg-loader": "4.0.0"
   },
   "dependencies": {
-    "@nuxt/ui": "0.4.1",
     "@pinia/nuxt": "0.4.11",
     "dayjs": "1.11.8",
     "focus-trap-vue": "4.0.2",

@@ -1,7 +1,6 @@
 import {defineStore} from 'pinia'
 
-import {Currency, CurrencyArgument} from '~/utils/currency-helpers'
-import {CurrencyState} from '~/utils/currency-state'
+import {Currency, CurrencyState, CurrencyArgument} from '~/utils/currency-helpers'
 import {generateRequestId} from '~/utils/credit-helpers'
 
 type InputData = {

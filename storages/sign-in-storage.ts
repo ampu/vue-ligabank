@@ -1,6 +1,6 @@
-const SIGN_IN_STORE_KEY = `akimutin-ligabank__sign-in`;
+const SIGN_IN_STORAGE_KEY = `ligabank-sign-in`;
 
-class SignInStore {
+class SignInStorage {
   constructor(
     private _storage: Storage,
     private _mapKey: string,
@@ -31,4 +31,4 @@ class SignInStore {
   }
 }
 
-export const signInStore = new SignInStore(localStorage, SIGN_IN_STORE_KEY);
+export const signInStorage = new SignInStorage(localStorage, SIGN_IN_STORAGE_KEY);

@@ -17,18 +17,3 @@ export enum LocalPath {
 
   CURRENCY_TO_RATE = `/api/currency-to-rate`,
 }
-
-export const CREDIT_PATHS = [
-  LocalPath.INDEX,
-  LocalPath.SERVICES,
-  LocalPath.CREDIT_CALCULATOR,
-  LocalPath.CONTACTS,
-  LocalPath.SIGN_IN,
-]
-
-export enum ExternalLink {
-  FACEBOOK = `https://facebook.com/`,
-  INSTAGRAM = `https://instagram.com/`,
-  TWITTER = `https://twitter.com/`,
-  YOUTUBE = `https://youtube.com/`,
-}

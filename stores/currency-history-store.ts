@@ -1,20 +1,20 @@
 import {defineStore} from 'pinia'
-import {currencyHistory} from '~/utils/currency-history'
+import {currencyHistoryStorage} from '~/storages/currency-history-storage'
 import {CurrencyArgument} from '~/utils/currency-helpers'
 
 export const useCurrencyHistoryStore = defineStore(`currency-history`, () => {
-  const items = ref<CurrencyArgument[]>(currencyHistory.getItems())
+  const items = ref<CurrencyArgument[]>(currencyHistoryStorage.getItems())
 
   const hasItems = computed(() => items.value.length > 0)
 
   const pushItem = (item: unknown) => {
-    currencyHistory.pushItem(item)
-    items.value = currencyHistory.getItems()
+    currencyHistoryStorage.pushItem(item)
+    items.value = currencyHistoryStorage.getItems()
   }
 
   const reset = () => {
-    currencyHistory.reset()
-    items.value = currencyHistory.getItems()
+    currencyHistoryStorage.reset()
+    items.value = currencyHistoryStorage.getItems()
   }
 
   return {

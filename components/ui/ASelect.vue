@@ -26,9 +26,7 @@
         v-for="(option, optionIndex) in options"
         :key="option.value"
       >
-        <li
-          :class="{active: modelValue === option.value}"
-        >
+        <li :class="{active: modelValue === option.value}">
           <button
             type="button"
             :data-index="optionIndex"

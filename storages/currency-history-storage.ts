@@ -1,6 +1,6 @@
-const CURRENCY_HISTORY_STORE_KEY = `akimutin_ligabank-v1__history`
+const CURRENCY_HISTORY_STORAGE_KEY = `ligabank-history`
 
-class CurrencyHistoryStore {
+class CurrencyHistoryStorage {
   constructor(
     private _storage: Storage,
     private _itemsKey: string
@@ -33,4 +33,4 @@ class CurrencyHistoryStore {
   }
 }
 
-export const currencyHistory = new CurrencyHistoryStore(localStorage, CURRENCY_HISTORY_STORE_KEY)
+export const currencyHistoryStorage = new CurrencyHistoryStorage(localStorage, CURRENCY_HISTORY_STORAGE_KEY)
