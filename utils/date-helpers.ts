@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration.js'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import 'dayjs/locale/ru'
+import relativeTime from 'dayjs/plugin/relativeTime.js'
+import 'dayjs/locale/ru.js'
 
 const SERIALIZATION_DATE_FORMAT = `YYYY-MM-DD`
 const USER_DATE_FORMAT = `D.MM.YYYY`
