@@ -246,7 +246,7 @@ const convertCurrency = async (
     "cost arrows income"
     ". . ."
     "date . submit";
-  grid-template-columns: (390px + 15px + 120px) 1fr (390px + 15px + 120px);
+  grid-template-columns: 1fr 100px 1fr;
   grid-template-rows: auto auto 85px auto;
   align-items: start;
 
@@ -347,7 +347,7 @@ const convertCurrency = async (
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
-  width: 390px;
+  width: calc(100% - 15px - 120px);
   padding: 12px 30px 13px;
   margin-right: 15px;
 

@@ -1,6 +1,6 @@
 <template>
   <FocusTrap :active="isActive">
-    <header :class="[`AppHeader`, isActive && `active`]">
+    <header :class="[`AppHeader`, isActive && `active`]" @click="onClick">
       <nav class="AppHeader__navigation">
         <button class="AppHeader__toggle-button" type="button" @click="toggleActive">
           <HeaderToggleButtonIcon/>
@@ -42,6 +42,19 @@ import HeaderCloseButtonIcon from '@/assets/icons/header-close-icon.svg?componen
 const [isActive, , deactivate, toggleActive] = useMobileModal()
 
 const [isActiveSignIn, activateSignIn, deactivateSignIn] = useActive(false)
+
+const onClick = (evt: Event) => {
+  if (!isActive.value) {
+    return
+  }
+  const target = evt.target
+  if (target instanceof HTMLElement) {
+    const anchor = target.closest(`a`)
+    if (anchor) {
+      deactivate()
+    }
+  }
+}
 </script>
 
 <style lang="scss">
