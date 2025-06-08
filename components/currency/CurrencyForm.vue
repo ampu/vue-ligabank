@@ -176,8 +176,8 @@ const onIncomeCurrencyChange = (currency: Currency) => {
   )
 }
 
-const onIncomeAmountChange = (evt) => {
-  currencyStore.patchArgument({incomeAmount: +evt.target.value})
+const onIncomeAmountChange = (evt: Event) => {
+  currencyStore.patchArgument({incomeAmount: +(evt.target as HTMLInputElement).value})
 
   convertCurrency(
     CurrencyState.COST_PENDING,
