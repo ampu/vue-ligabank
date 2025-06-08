@@ -1,5 +1,5 @@
 <template>
-  <li :class="[`CurrencyHistoryItem`, className]">
+  <li class="CurrencyHistoryItem">
     <span class="CurrencyHistoryItem__date">{{ formatDateForUser(item.date) }}</span>
     <span class="CurrencyHistoryItem__cost">{{ formattedCostAmount }}&nbsp;{{ item.costCurrency }}</span>
     <span class="CurrencyHistoryItem__arrow"/>
@@ -11,7 +11,6 @@
 import {CurrencyArgument, formatMoney} from '~/utils/currency-helpers'
 
 const props = defineProps<{
-  className: string,
   item: CurrencyArgument,
 }>()
 
