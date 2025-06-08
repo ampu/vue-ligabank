@@ -32,8 +32,8 @@
       <CurrencyInput
         class="CurrencyForm__currency"
         name="cost-currency"
-        :value="currencyStore.argument.costCurrency"
-        @change="onCostCurrencyChange"
+        :modelValue="currencyStore.argument.costCurrency"
+        @update:modelValue="onCostCurrencyChange"
       />
     </fieldset>
 
@@ -57,8 +57,8 @@
       <CurrencyInput
         class="CurrencyForm__currency"
         name="income-currency"
-        :value="currencyStore.argument.incomeCurrency"
-        @change="onIncomeCurrencyChange"
+        :modelValue="currencyStore.argument.incomeCurrency"
+        @update:modelValue="onIncomeCurrencyChange"
       />
     </fieldset>
 
@@ -131,14 +131,14 @@ const onSaveResultClick = () => {
   currencyStore.resetResult()
 }
 
-const preventForbiddenKeyDown = (evt) => {
+const preventForbiddenKeyDown = (evt: KeyboardEvent) => {
   if (evt.key === KeyboardKey.PLUS || evt.key === KeyboardKey.MINUS || evt.key === KeyboardKey.E) {
     evt.preventDefault()
   }
 }
 
-const onCostCurrencyChange = (evt) => {
-  currencyStore.patchArgument({costCurrency: evt.target.value})
+const onCostCurrencyChange = (currency: Currency) => {
+  currencyStore.patchArgument({costCurrency: currency})
 
   convertCurrency(
     CurrencyState.INCOME_PENDING,
@@ -150,9 +150,8 @@ const onCostCurrencyChange = (evt) => {
   )
 }
 
-const onCostAmountChange = (evt) => {
-  const costAmount =
-    currencyStore.patchArgument({costAmount: +evt.target.value})
+const onCostAmountChange = (evt: Event) => {
+  const costAmount = currencyStore.patchArgument({costAmount: +(evt.target as HTMLInputElement).value})
 
   convertCurrency(
     CurrencyState.INCOME_PENDING,
@@ -164,8 +163,8 @@ const onCostAmountChange = (evt) => {
   )
 }
 
-const onIncomeCurrencyChange = (evt) => {
-  currencyStore.patchArgument({incomeCurrency: evt.target.value})
+const onIncomeCurrencyChange = (currency: Currency) => {
+  currencyStore.patchArgument({incomeCurrency: currency})
 
   convertCurrency(
     CurrencyState.COST_PENDING,

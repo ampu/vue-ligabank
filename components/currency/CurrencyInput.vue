@@ -1,7 +1,7 @@
 <template>
   <select
     :value="modelValue"
-    @change="emit(`update:modelValue`, $event.target.value)"
+    @change="emit(`update:modelValue`, ($event.target as HTMLSelectElement).value as Currency)"
   >
     <option
       v-for="currency of CURRENCIES"
@@ -16,7 +16,7 @@
 import {CURRENCIES, Currency} from '~/utils/currency-helpers'
 
 const props = defineProps<{
-  modelValue: Currency,
+  modelValue: string,
 }>()
 
 const emit = defineEmits<{
