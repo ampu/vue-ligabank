@@ -108,7 +108,14 @@ const formattedIncomeAmount = computed(() => +currencyStore.argument.incomeAmoun
 const maxDate = computed(() => new Date())
 const minDate = computed(() => dayjs(maxDate.value).subtract(HISTORY_DATE_DAYS, `day`).toDate())
 
-let latestConvertCurrencyArgument = [
+let latestConvertCurrencyArgument: [
+  CurrencyState,
+  CurrencyState,
+  Currency,
+  number,
+  Currency,
+  `costAmount` | `incomeAmount`,
+] = [
   CurrencyState.INCOME_PENDING,
   CurrencyState.INCOME_ERROR,
   currencyStore.argument.costCurrency,
